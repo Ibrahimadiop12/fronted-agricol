@@ -55,6 +55,7 @@
                   <th scope="col">Photo</th>
                   <th scope="col">Nom</th>
                   <th scope="col">Statut</th>
+                  <th colspan="2">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -69,6 +70,14 @@
                   </th>
                   <td class="py-5">{{ categorie.nomCategorie }}</td>
                   <td class="py-5">{{ categorie.statut }}</td>
+                  <td>
+                    <button (click)="archiverCategorie(categorie.id)" class="btn btn-md rounded-circle bg-light border mt-4">
+                      <i class="fa fa-times text-danger"></i>
+                    </button>
+                    <button (click)="publierCategorie(categorie.id)" class="btn btn-md rounded-circle bg-light border mt-4 offset-1">
+                      <i class="fa fa-check text-success"></i>
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </table>

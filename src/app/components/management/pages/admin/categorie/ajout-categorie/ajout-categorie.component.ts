@@ -109,4 +109,27 @@ export class AjoutCategorieComponent implements OnInit {
     console.log('URL générée pour l\'image:', fullUrl);
     return fullUrl;
   }
+  archiverCategorie(id: number): void {
+    this.categorieService.archiverCategorie(id).subscribe({
+      next: (response) => {
+        console.log('Produit archivé', response);
+        this.loadCategories(); // Recharger les produits après l'archivage
+      },
+      error: (err) => {
+        console.error('Erreur lors de l\'archivage du produit', err);
+      }
+    });
+  }
+  
+  publierCategorie(id: number): void {
+    this.categorieService.publierCategorie(id).subscribe({
+      next: (response) => {
+        console.log('categorie publié', response);
+        this.loadCategories(); // Recharger les produits après la publication
+      },
+      error: (err) => {
+        console.error('Erreur lors de la publication du categorie', err);
+      }
+    });
+  }
 }

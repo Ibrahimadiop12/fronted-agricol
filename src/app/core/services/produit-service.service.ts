@@ -47,14 +47,15 @@ export class ProduitServiceService {
     const headers = this.getAuthHeaders();
     return this.http.get<Produit[]>(this.apiUrlV, { headers });
   }
-  archiverProduit(id: number): Observable<any> {
-    const headers = this.getAuthHeaders();
-    return this.http.put(`${this.baseUrl}/${id}/archiver`, {headers});
-  }
+ // Archiver un produit
+archiverProduit(id: number): Observable<any> {
+  const headers = this.getAuthHeaders();
+  return this.http.put(`${this.apiUrl}/${id}/archiver`, {}, { headers });
+}
 
-  // Publie un produit
-  publierProduit(id: number): Observable<any> {
-    const headers = this.getAuthHeaders();
-    return this.http.put(`${this.baseUrl}${id}/publier`, {headers});
-  }
+// Publier un produit
+publierProduit(id: number): Observable<any> {
+  const headers = this.getAuthHeaders();
+  return this.http.put(`${this.apiUrl}/${id}/publier`, {}, { headers });
+}
 }

@@ -71,4 +71,14 @@ export class CategorieService {
     const headers = this.getAuthHeaders();
     return this.http.delete<void>(`${this.apiUrl}/${id}`, { headers });
   }
+  archiverCategorie(id: number): Observable<any> {
+    const headers = this.getAuthHeaders();
+    return this.http.put(`${this.apiUrl}/${id}/archiver`, {}, { headers });
+  }
+  
+  // Publier un produit
+  publierCategorie(id: number): Observable<any> {
+    const headers = this.getAuthHeaders();
+    return this.http.put(`${this.apiUrl}/${id}/publier`, {}, { headers });
+  }
 }
